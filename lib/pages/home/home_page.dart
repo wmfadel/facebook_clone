@@ -12,13 +12,15 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgound,
-      body: ScreenTypeLayout(
-        mobile: const MobileHomeLayout(),
-        desktop: const WebHomeLayout(),
-        breakpoints: const ScreenBreakpoints(
-          tablet: 600,
-          desktop: 950,
-          watch: 300,
+      body: SafeArea(
+        child: ScreenTypeLayout(
+          mobile: const MobileHomeLayout(),
+          desktop: const WebHomeLayout(),
+          breakpoints: const ScreenBreakpoints(
+            tablet: 600,
+            desktop: 950,
+            watch: 300,
+          ),
         ),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:facebook_clone/resources/app_colors.dart';
 import 'package:facebook_clone/resources/images.dart';
-import 'package:facebook_clone/widgets/home_page/web_appbar_action.dart';
-import 'package:facebook_clone/widgets/home_page/web_appbar_tab.dart';
+import 'package:facebook_clone/widgets/home_page/appbar_action.dart';
+import 'package:facebook_clone/widgets/home_page/custom_appbar_tab.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -54,19 +54,19 @@ class WebHomeLayout extends StatelessWidget {
                         ),
                       ),
                     if (MediaQuery.of(context).size.width <= 1030)
-                      const WebAppbarAction(icon: Icons.search, name: 'Search'),
+                      const AppbarAction(icon: Icons.search, name: 'Search'),
                   ],
                 ),
 
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: const [
-                    WebAppbarTab(
+                    CustomAppbarTab(
                         icon: Images.home, name: 'Home', isSelected: true),
-                    WebAppbarTab(icon: Images.pages, name: 'Pages'),
-                    WebAppbarTab(icon: Images.groups, name: 'Groups'),
-                    WebAppbarTab(icon: Images.watch, name: 'Watch'),
-                    WebAppbarTab(icon: Images.gaming, name: 'Gaming'),
+                    CustomAppbarTab(icon: Images.pages, name: 'Pages'),
+                    CustomAppbarTab(icon: Images.groups, name: 'Groups'),
+                    CustomAppbarTab(icon: Images.watch, name: 'Watch'),
+                    CustomAppbarTab(icon: Images.gaming, name: 'Gaming'),
                   ],
                 ),
 
@@ -86,13 +86,12 @@ class WebHomeLayout extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 8),
-                    WebAppbarAction(icon: Icons.apps_rounded, name: 'Menu'),
-                    WebAppbarAction(
+                    AppbarAction(icon: Icons.apps_rounded, name: 'Menu'),
+                    AppbarAction(
                         icon: Icons.chat_bubble_rounded, name: 'Messages'),
-                    WebAppbarAction(
+                    AppbarAction(
                         icon: Icons.notifications, name: 'Notifications'),
-                    WebAppbarAction(
-                        icon: Icons.arrow_drop_down, name: 'Account'),
+                    AppbarAction(icon: Icons.arrow_drop_down, name: 'Account'),
                   ],
                 ),
               ],

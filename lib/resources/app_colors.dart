@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class AppColors {
   static const backgound = Color(0xffF0F2F5);
   static const textBlack = Color(0xff050505);
-  static const iconBckground = Color(0xffD8DADF);
+  static const iconBckground = Color(0xaaD8DADF);
   static const overLayNumber = Color(0xffE42645);
   static const facebookBlue = Color(0xff1877F2);
   static const verifiedAccountBllue = Color(0xff166BDA);

@@ -1,9 +1,10 @@
 import 'package:facebook_clone/resources/app_colors.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class WebAppbarTab extends StatelessWidget {
-  const WebAppbarTab({
+class CustomAppbarTab extends StatelessWidget {
+  const CustomAppbarTab({
     required this.icon,
     required this.name,
     this.isSelected = false,
@@ -18,10 +19,10 @@ class WebAppbarTab extends StatelessWidget {
     return Tooltip(
       message: name,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        padding: const EdgeInsets.symmetric(horizontal: kIsWeb ? 8 : 4),
         child: SizedBox(
           height: 52,
-          width: 82,
+          width: kIsWeb ? 82 : 52,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -35,7 +36,7 @@ class WebAppbarTab extends StatelessWidget {
               const SizedBox(height: 10),
               if (isSelected)
                 Container(
-                  height: 4,
+                  height: kIsWeb ? 4 : 2,
                   width: double.maxFinite,
                   decoration: const BoxDecoration(
                     color: AppColors.facebookBlue,
