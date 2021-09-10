@@ -49,7 +49,8 @@ class MobileAppbar extends StatelessWidget {
                   Tabs tab =
                       BlocProvider.of<TabsnavigationCubit>(context).currentTab;
                   return Row(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       CustomAppbarTab(
                         id: Tabs.home,
