@@ -23,7 +23,6 @@ class RenderStickySliver extends RenderSliverSingleBoxAdapter {
     );
 
     double childExtent = child?.size.height ?? 0;
-    debugPrint('scroll ${constraints.scrollOffset}');
     geometry = SliverGeometry(
       paintExtent: childExtent,
       maxPaintExtent: childExtent,
