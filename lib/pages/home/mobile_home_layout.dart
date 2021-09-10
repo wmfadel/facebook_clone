@@ -1,5 +1,9 @@
+import 'package:facebook_clone/blocs/cubit/tabsnavigation_cubit.dart';
+import 'package:facebook_clone/enums/tabs_enum.dart';
+import 'package:facebook_clone/pages/explore/explore.dart';
 import 'package:facebook_clone/widgets/home_page/mobile_appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MobileHomeLayout extends StatelessWidget {
   const MobileHomeLayout({Key? key}) : super(key: key);
@@ -9,13 +13,27 @@ class MobileHomeLayout extends StatelessWidget {
     return CustomScrollView(
       slivers: [
         const MobileAppbar(),
-        ...List<int>.generate(5, (index) => index).map(
-          (e) => SliverToBoxAdapter(
-            child: Container(
-              height: 300,
-              color: Colors.red,
-              margin: const EdgeInsets.symmetric(vertical: 5),
-            ),
+        SliverToBoxAdapter(
+          child: BlocConsumer<TabsnavigationCubit, TabsnavigationState>(
+            listener: (context, TabsnavigationState state) {},
+            builder: (context, TabsnavigationState state) {
+              Tabs tab =
+                  BlocProvider.of<TabsnavigationCubit>(context).currentTab;
+              switch (tab) {
+                case Tabs.home:
+                  return Container();
+                case Tabs.pages:
+                  return Container();
+                case Tabs.groups:
+                  return Container();
+                case Tabs.watch:
+                  return Container();
+                case Tabs.gaming:
+                  return Container();
+                case Tabs.more:
+                  return const Explore();
+              }
+            },
           ),
         ),
       ],
