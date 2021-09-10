@@ -1,7 +1,9 @@
+import 'package:facebook_clone/enums/tabs_enum.dart';
 import 'package:facebook_clone/resources/images.dart';
 import 'package:facebook_clone/widgets/home_page/appbar_action.dart';
 import 'package:facebook_clone/widgets/home_page/custom_appbar_tab.dart';
 import 'package:facebook_clone/widgets/sticky_sliver.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MobileAppbar extends StatelessWidget {
@@ -40,12 +42,20 @@ class MobileAppbar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: const [
                   CustomAppbarTab(
-                      icon: Images.home, name: 'Home', isSelected: true),
-                  CustomAppbarTab(icon: Images.pages, name: 'Pages'),
-                  CustomAppbarTab(icon: Images.groups, name: 'Groups'),
-                  CustomAppbarTab(icon: Images.watch, name: 'Watch'),
-                  CustomAppbarTab(icon: Images.gaming, name: 'Gaming'),
-                  CustomAppbarTab(icon: Images.menu, name: 'More'),
+                      id: Tabs.home,
+                      icon: Images.home,
+                      name: 'Home',
+                      isSelected: true),
+                  CustomAppbarTab(
+                      id: Tabs.pages, icon: Images.pages, name: 'Pages'),
+                  CustomAppbarTab(
+                      id: Tabs.groups, icon: Images.groups, name: 'Groups'),
+                  CustomAppbarTab(
+                      id: Tabs.watch, icon: Images.watch, name: 'Watch'),
+                  CustomAppbarTab(
+                      id: Tabs.gaming, icon: Images.gaming, name: 'Gaming'),
+                  CustomAppbarTab(
+                      id: Tabs.more, icon: Images.menu, name: 'More'),
                 ],
               ),
             ],

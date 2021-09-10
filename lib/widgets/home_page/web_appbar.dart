@@ -1,8 +1,11 @@
+import 'package:facebook_clone/blocs/cubit/tabsnavigation_cubit.dart';
+import 'package:facebook_clone/enums/tabs_enum.dart';
 import 'package:facebook_clone/resources/app_colors.dart';
 import 'package:facebook_clone/resources/images.dart';
 import 'package:facebook_clone/widgets/home_page/appbar_action.dart';
 import 'package:facebook_clone/widgets/home_page/custom_appbar_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WebAppbar extends StatelessWidget {
   const WebAppbar({
@@ -57,16 +60,51 @@ class WebAppbar extends StatelessWidget {
               ],
             ),
 
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                CustomAppbarTab(
-                    icon: Images.home, name: 'Home', isSelected: true),
-                CustomAppbarTab(icon: Images.pages, name: 'Pages'),
-                CustomAppbarTab(icon: Images.groups, name: 'Groups'),
-                CustomAppbarTab(icon: Images.watch, name: 'Watch'),
-                CustomAppbarTab(icon: Images.gaming, name: 'Gaming'),
-              ],
+            BlocConsumer<TabsnavigationCubit, TabsnavigationState>(
+              listener: (BuildContext context, TabsnavigationState state) {
+                if (state is TabsnavigationChange) {
+                  debugPrint('new tab ${state.tab}');
+                }
+              },
+              builder: (BuildContext context, TabsnavigationState state) {
+                Tabs tab =
+                    BlocProvider.of<TabsnavigationCubit>(context).currentTab;
+                return Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CustomAppbarTab(
+                      id: Tabs.home,
+                      icon: Images.home,
+                      name: 'Home',
+                      isSelected: tab == Tabs.home ? true : false,
+                    ),
+                    CustomAppbarTab(
+                      id: Tabs.pages,
+                      icon: Images.pages,
+                      name: 'Pages',
+                      isSelected: tab == Tabs.pages ? true : false,
+                    ),
+                    CustomAppbarTab(
+                      id: Tabs.groups,
+                      icon: Images.groups,
+                      name: 'Groups',
+                      isSelected: tab == Tabs.groups ? true : false,
+                    ),
+                    CustomAppbarTab(
+                      id: Tabs.watch,
+                      icon: Images.watch,
+                      name: 'Watch',
+                      isSelected: tab == Tabs.watch ? true : false,
+                    ),
+                    CustomAppbarTab(
+                      id: Tabs.gaming,
+                      icon: Images.gaming,
+                      name: 'Gaming',
+                      isSelected: tab == Tabs.gaming ? true : false,
+                    ),
+                  ],
+                );
+              },
             ),
 
             Row(
@@ -78,7 +116,7 @@ class WebAppbar extends StatelessWidget {
                 ),
                 SizedBox(width: 5),
                 Text(
-                  'Mohamed',
+                  'Dasha Taran',
                   style: TextStyle(
                     color: AppColors.textBlack,
                     fontWeight: FontWeight.bold,
@@ -86,7 +124,7 @@ class WebAppbar extends StatelessWidget {
                 ),
                 SizedBox(width: 8),
                 AppbarAction(icon: Icons.apps_rounded, name: 'Menu'),
-                AppbarAction(icon: Icons.chat_bubble_rounded, name: 'Messages'),
+                AppbarAction(image: Images.messenger, name: 'Messages'),
                 AppbarAction(icon: Icons.notifications, name: 'Notifications'),
                 AppbarAction(icon: Icons.arrow_drop_down, name: 'Account'),
               ],

@@ -59,16 +59,42 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/pics/logo.png
-    - assets/pics/logo_text.png
-    - assets/pics/user.jpg
-    - assets/pics/home.svg
-    - assets/pics/pages.svg
-    - assets/pics/watch.svg
-    - assets/pics/groups.svg
-    - assets/pics/gaming.svg
-    - assets/pics/menu.svg
-    - assets/pics/messenger.svg
+    - assets/images/logo.png
+    - assets/images/logo_text.png
+    - assets/images/user.jpg
+    - assets/images/home.svg
+    - assets/images/pages.svg
+    - assets/images/watch.svg
+    - assets/images/groups.svg
+    - assets/images/gaming.svg
+    - assets/images/menu.svg
+    - assets/images/messenger.svg
+    - assets/images/explore/ads.png
+    - assets/images/explore/blod.png
+    - assets/images/explore/campus.png
+    - assets/images/explore/covid.png
+    - assets/images/explore/events.png
+    - assets/images/explore/favorite.png
+    - assets/images/explore/friends_list.png
+    - assets/images/explore/friends.png
+    - assets/images/explore/fundraisers.png
+    - assets/images/explore/games.png
+    - assets/images/explore/groups.png
+    - assets/images/explore/health.png
+    - assets/images/explore/jobs.png
+    - assets/images/explore/live.png
+    - assets/images/explore/market.png
+    - assets/images/explore/memories.png
+    - assets/images/explore/messenger_kids.png
+    - assets/images/explore/messenger.png
+    - assets/images/explore/pages.png
+    - assets/images/explore/pay.png
+    - assets/images/explore/play.png
+    - assets/images/explore/recent_ads.png
+    - assets/images/explore/recent.png
+    - assets/images/explore/saved.png
+    - assets/images/explore/watch.png
+    - assets/images/explore/weather.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
