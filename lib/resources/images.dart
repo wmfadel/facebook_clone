@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Images {
   static const appLogo = 'assets/images/logo.png';
   static const appLogoText = 'assets/images/logo_text.png';
@@ -9,7 +11,6 @@ class Images {
   static const gaming = 'assets/images/gaming.svg';
   static const menu = 'assets/images/menu.svg';
   static const messenger = 'assets/images/messenger.svg';
-  static const avatar = 'assets/images/avatar.svg';
   static const expAds = 'assets/images/explore/ads.png';
   static const expBlod = 'assets/images/explore/blod.png';
   static const expCampus = 'assets/images/explore/campus.png';
@@ -36,4 +37,11 @@ class Images {
   static const expSaved = 'assets/images/explore/saved.png';
   static const expWatch = 'assets/images/explore/watch.png';
   static const expWeather = 'assets/images/explore/weather.png';
+
+  static String randomAvatar() =>
+      'assets/images/avatar${_getRandomNumber(1, 8)}.svg';
+
+  static int _getRandomNumber(int min, int max) {
+    return min + Random().nextInt(max - min);
+  }
 }

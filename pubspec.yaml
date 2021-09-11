@@ -69,7 +69,14 @@ flutter:
     - assets/images/gaming.svg
     - assets/images/menu.svg
     - assets/images/messenger.svg
-    - assets/images/avatar.svg
+    - assets/images/avatar1.svg
+    - assets/images/avatar2.svg
+    - assets/images/avatar3.svg
+    - assets/images/avatar4.svg
+    - assets/images/avatar5.svg
+    - assets/images/avatar6.svg
+    - assets/images/avatar7.svg
+    - assets/images/avatar8.svg
     - assets/images/explore/ads.png
     - assets/images/explore/blod.png
     - assets/images/explore/campus.png
