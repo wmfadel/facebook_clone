@@ -1,4 +1,4 @@
-import 'package:facebook_clone/blocs/cubit/tabsnavigation_cubit.dart';
+import 'package:facebook_clone/blocs/navigation_cubit/tabsnavigation_cubit.dart';
 import 'package:facebook_clone/enums/tabs_enum.dart';
 import 'package:facebook_clone/pages/chat/mobile_chat_page.dart';
 import 'package:facebook_clone/resources/images.dart';
@@ -48,9 +48,7 @@ class MobileAppbar extends StatelessWidget {
               ),
               BlocConsumer<TabsnavigationCubit, TabsnavigationState>(
                 listener: (BuildContext context, TabsnavigationState state) {
-                  if (state is TabsnavigationChange) {
-                    debugPrint('new tab ${state.tab}');
-                  }
+                  if (state is TabsnavigationChange) {}
                 },
                 builder: (BuildContext context, TabsnavigationState state) {
                   Tabs tab =
