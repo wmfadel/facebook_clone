@@ -1,3 +1,4 @@
+import 'package:facebook_clone/pages/chat/chat.dart';
 import 'package:facebook_clone/pages/explore/explore.dart';
 import 'package:facebook_clone/widgets/home_page/web_appbar.dart';
 import 'package:flutter/cupertino.dart';
@@ -27,11 +28,10 @@ class WebHomeLayout extends StatelessWidget {
                   child: Container(
                     color: Colors.blue,
                   )),
-              Flexible(
-                  flex: 2,
-                  child: Container(
-                    color: Colors.green,
-                  )),
+              const Expanded(
+                flex: 2,
+                child: Chat(),
+              ),
             ],
           ),
         ),

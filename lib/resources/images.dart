@@ -9,6 +9,7 @@ class Images {
   static const gaming = 'assets/images/gaming.svg';
   static const menu = 'assets/images/menu.svg';
   static const messenger = 'assets/images/messenger.svg';
+  static const avatar = 'assets/images/avatar.svg';
   static const expAds = 'assets/images/explore/ads.png';
   static const expBlod = 'assets/images/explore/blod.png';
   static const expCampus = 'assets/images/explore/campus.png';
