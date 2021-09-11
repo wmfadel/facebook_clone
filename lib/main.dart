@@ -1,4 +1,5 @@
 import 'package:facebook_clone/blocs/cubit/tabsnavigation_cubit.dart';
+import 'package:facebook_clone/pages/chat/mobile_chat_page.dart';
 import 'package:facebook_clone/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         initialRoute: HomePage.routeName,
         routes: {
           HomePage.routeName: (context) => const HomePage(),
+          MobileChatPage.routeName: (context) => const MobileChatPage(),
         },
       ),
     );

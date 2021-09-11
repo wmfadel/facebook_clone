@@ -1,5 +1,6 @@
 import 'package:facebook_clone/blocs/cubit/tabsnavigation_cubit.dart';
 import 'package:facebook_clone/enums/tabs_enum.dart';
+import 'package:facebook_clone/pages/chat/mobile_chat_page.dart';
 import 'package:facebook_clone/resources/images.dart';
 import 'package:facebook_clone/widgets/home_page/appbar_action.dart';
 import 'package:facebook_clone/widgets/home_page/custom_appbar_tab.dart';
@@ -34,8 +35,14 @@ class MobileAppbar extends StatelessWidget {
                     ),
                     const Expanded(child: SizedBox()),
                     const AppbarAction(icon: Icons.search, name: 'Search'),
-                    const AppbarAction(
-                        image: Images.messenger, name: 'Messages'),
+                    AppbarAction(
+                      image: Images.messenger,
+                      name: 'Messages',
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushNamed(MobileChatPage.routeName);
+                      },
+                    ),
                   ],
                 ),
               ),

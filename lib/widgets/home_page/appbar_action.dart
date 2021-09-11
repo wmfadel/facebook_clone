@@ -7,38 +7,45 @@ class AppbarAction extends StatelessWidget {
     this.icon,
     this.image,
     required this.name,
+    this.onTap,
     Key? key,
   }) : super(key: key);
   final IconData? icon;
   final String? image;
   final String name;
+  final Function? onTap;
   @override
   Widget build(BuildContext context) {
-    return Tooltip(
-      message: name,
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 4),
-        width: 38,
-        height: 38,
-        child: icon != null
-            ? Icon(icon, size: 22)
-            : Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SvgPicture.asset(
-                      image!,
-                      width: 18,
-                      height: 18,
-                      fit: BoxFit.fitWidth,
-                      semanticsLabel: name,
-                    ),
-                  ],
+    return GestureDetector(
+      onTap: () {
+        if (onTap != null) onTap!();
+      },
+      child: Tooltip(
+        message: name,
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 4),
+          width: 38,
+          height: 38,
+          child: icon != null
+              ? Icon(icon, size: 22)
+              : Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      SvgPicture.asset(
+                        image!,
+                        width: 18,
+                        height: 18,
+                        fit: BoxFit.fitWidth,
+                        semanticsLabel: name,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-        decoration: const BoxDecoration(
-          color: AppColors.iconBckground,
-          shape: BoxShape.circle,
+          decoration: const BoxDecoration(
+            color: AppColors.iconBckground,
+            shape: BoxShape.circle,
+          ),
         ),
       ),
     );

@@ -10,6 +10,9 @@ class Chat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      // this list is used in home page wich contins <= 3 scrollables
+      // it will cause Exception if none of them contains key
+      controller: ScrollController(),
       key: const Key('chats_tab'),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
