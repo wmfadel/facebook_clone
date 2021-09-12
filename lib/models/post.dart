@@ -26,7 +26,7 @@ class Post {
 
   String getFormatedDate() {
     if (publishTime.difference(DateTime.now()) < const Duration(minutes: 1)) {
-      return '${DateTime.now().difference(publishTime).inSeconds} s';
+      return '0 m';
     } else if (publishTime.difference(DateTime.now()) <
         const Duration(hours: 1)) {
       return '${publishTime.difference(DateTime.now()).inMinutes} m';
@@ -41,7 +41,7 @@ class Post {
   IconData getVisibilityIcon() {
     switch (visibility) {
       case Visibility.public:
-        return Icons.filter_vintage;
+        return Icons.public;
       case Visibility.private:
         return Icons.lock;
       case Visibility.friends:

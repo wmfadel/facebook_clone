@@ -17,6 +17,19 @@ class ApiPosts extends PostsRepository {
             text:
                 '20 years ago, we were irrevocably changed. We’ll never forget those we lost or the heroic efforts of first responders and everyday Americans on that terrible day. Nor will we forget the sacrifices of those who were called to service in the months and years that followed.',
             publishTime: DateTime.now(),
+            likes: [
+              'user_id_1',
+              'user_id_2',
+              'user_id_3',
+              'user_id_4',
+              'user_id_5',
+              'user_id_6',
+            ],
+            shares: [
+              'user_id_1',
+              'user_id_2',
+              'user_id_3',
+            ],
             visibility: Visibility.public,
           ),
           Post(
@@ -45,6 +58,11 @@ class ApiPosts extends PostsRepository {
               'https://pbs.twimg.com/media/E_AnxXbX0AsAaRv?format=jpg&name=small',
             ],
             publishTime: DateTime.now().add(const Duration(days: 90)),
+            likes: [
+              'user_id_1',
+              'user_id_2',
+              'user_id_3',
+            ],
             visibility: Visibility.friends,
           ),
           Post(
@@ -56,9 +74,14 @@ class ApiPosts extends PostsRepository {
             text:
                 '12 new and notable Android apps and live wallpapers from the last two weeks including KONTXT Voice, Lenovo Smart Frame, and Facebook View (8/28/21 - 9/11/21)',
             images: [
-              'https://pbs.twimg.com/media/E_AnUHgVkAE-5sQ?format=png&name=900x900,'
+              'https://pbs.twimg.com/media/E_AnUHgVkAE-5sQ?format=png&name=900x900',
             ],
             publishTime: DateTime.now(),
+            shares: [
+              'user_id_1',
+              'user_id_2',
+              'user_id_3',
+            ],
             visibility: Visibility.public,
           ),
           Post(
@@ -73,6 +96,16 @@ class ApiPosts extends PostsRepository {
               'https://pbs.twimg.com/media/E_AnNPjXMAQcgyN?format=jpg&name=large'
             ],
             publishTime: DateTime.now().add(const Duration(days: 5)),
+            shares: [
+              'user_id_1',
+              'user_id_2',
+              'user_id_3',
+            ],
+            likes: [
+              'user_id_1',
+              'user_id_2',
+              'user_id_3',
+            ],
             visibility: Visibility.public,
           ),
         ];

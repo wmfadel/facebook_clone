@@ -70,6 +70,7 @@ flutter:
     - assets/images/gaming.svg
     - assets/images/menu.svg
     - assets/images/messenger.svg
+    - assets/images/like.png
     - assets/images/avatar1.svg
     - assets/images/avatar2.svg
     - assets/images/avatar3.svg
