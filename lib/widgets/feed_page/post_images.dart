@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class PostImages extends StatefulWidget {
@@ -45,7 +46,7 @@ class _PostImagesState extends State<PostImages> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 320,
+      height: kIsWeb ? 320 : 280,
       width: double.maxFinite,
       child: Stack(
         children: [

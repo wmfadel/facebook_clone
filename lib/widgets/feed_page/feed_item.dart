@@ -16,8 +16,8 @@ class FeedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 300,
-      margin: const EdgeInsets.symmetric(
-          vertical: 20, horizontal: kIsWeb ? 80 : 20),
+      margin:
+          const EdgeInsets.symmetric(vertical: 10, horizontal: kIsWeb ? 80 : 8),
       child: Material(
         color: Colors.white,
         elevation: 1,
