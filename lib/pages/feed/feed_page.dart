@@ -1,4 +1,5 @@
 import 'package:facebook_clone/blocs/feed_cubit/feed_cubit.dart';
+import 'package:facebook_clone/widgets/feed_page/feed_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,9 +21,10 @@ class FeedPage extends StatelessWidget {
           return ListView.builder(
             shrinkWrap: true,
             physics: const ClampingScrollPhysics(),
+            controller: ScrollController(),
             itemCount: (state as FeedLoadedState).feedList.length,
             itemBuilder: (BuildContext context, int index) {
-              return Text(state.feedList[index].user.name);
+              return FeedItem(state.feedList[index]);
             },
           );
         }

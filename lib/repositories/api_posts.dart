@@ -27,7 +27,7 @@ class ApiPosts extends PostsRepository {
             ),
             text:
                 'Harvard experts discuss how the events of 9/11 reshaped life in the U.S.',
-            publishTime: DateTime.now(),
+            publishTime: DateTime(2021, 9, 24, 11, 32),
             visibility: Visibility.friends,
           ),
           Post(
@@ -44,7 +44,7 @@ class ApiPosts extends PostsRepository {
               'https://pbs.twimg.com/media/E_AnxXpX0AcaO_A?format=jpg&name=small',
               'https://pbs.twimg.com/media/E_AnxXbX0AsAaRv?format=jpg&name=small',
             ],
-            publishTime: DateTime.now(),
+            publishTime: DateTime.now().add(const Duration(days: 90)),
             visibility: Visibility.friends,
           ),
           Post(
@@ -72,7 +72,7 @@ class ApiPosts extends PostsRepository {
             images: [
               'https://pbs.twimg.com/media/E_AnNPjXMAQcgyN?format=jpg&name=large'
             ],
-            publishTime: DateTime.now(),
+            publishTime: DateTime.now().add(const Duration(days: 5)),
             visibility: Visibility.public,
           ),
         ];
