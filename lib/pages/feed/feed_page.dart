@@ -22,11 +22,8 @@ class FeedPage extends StatelessWidget {
             shrinkWrap: true,
             physics: const ClampingScrollPhysics(),
             controller: ScrollController(),
-            itemCount: (state as FeedLoadedState).feedList.length + 1,
+            itemCount: (state as FeedLoadedState).feedList.length,
             itemBuilder: (BuildContext context, int index) {
-              if (index == state.feedList.length) {
-                return const SizedBox(height: 150);
-              }
               return FeedItem(state.feedList[index]);
             },
           );

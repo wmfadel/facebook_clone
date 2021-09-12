@@ -34,7 +34,7 @@ class WebAppbar extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 // appbar search field
-                if (MediaQuery.of(context).size.width > 1030)
+                if (MediaQuery.of(context).size.width > 1044)
                   SizedBox(
                     width: 180,
                     height: 32,
@@ -55,7 +55,7 @@ class WebAppbar extends StatelessWidget {
                           hintStyle: const TextStyle(fontSize: 12)),
                     ),
                   ),
-                if (MediaQuery.of(context).size.width <= 1030)
+                if (MediaQuery.of(context).size.width <= 1044)
                   const AppbarAction(icon: Icons.search, name: 'Search'),
               ],
             ),

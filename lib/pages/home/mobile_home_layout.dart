@@ -11,10 +11,10 @@ class MobileHomeLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
+    return Column(
+      children: [
         const MobileAppbar(),
-        /*   SliverToBoxAdapter(
+        Expanded(
           child: BlocConsumer<TabsnavigationCubit, TabsnavigationState>(
             listener: (context, TabsnavigationState state) {},
             builder: (context, TabsnavigationState state) {
@@ -35,24 +35,6 @@ class MobileHomeLayout extends StatelessWidget {
                   return const Explore();
               }
             },
-          ),
-        ),*/
-        ...List<int>.generate(5, (index) => index).map(
-          (e) => SliverToBoxAdapter(
-            child: Container(
-              height: 300,
-              color: Colors.red,
-              margin: const EdgeInsets.symmetric(vertical: 5),
-            ),
-          ),
-        ),
-        ...List<int>.generate(5, (index) => index).map(
-          (e) => SliverToBoxAdapter(
-            child: Container(
-              height: 300,
-              color: Colors.red,
-              margin: const EdgeInsets.symmetric(vertical: 5),
-            ),
           ),
         ),
       ],
