@@ -15,7 +15,6 @@ class FeedItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
       margin:
           const EdgeInsets.symmetric(vertical: 10, horizontal: kIsWeb ? 80 : 8),
       child: Material(
