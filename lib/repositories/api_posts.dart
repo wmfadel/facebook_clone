@@ -1,3 +1,4 @@
+import 'package:facebook_clone/enums/visibility_enum.dart';
 import 'package:facebook_clone/models/post.dart';
 import 'package:facebook_clone/repositories/posts_repository.dart';
 
@@ -30,7 +31,7 @@ class ApiPosts extends PostsRepository {
               'user_id_2',
               'user_id_3',
             ],
-            visibility: Visibility.public,
+            visibility: VisibilityEnum.public,
           ),
           Post(
             id: 'b',
@@ -41,7 +42,7 @@ class ApiPosts extends PostsRepository {
             text:
                 'Harvard experts discuss how the events of 9/11 reshaped life in the U.S.',
             publishTime: DateTime(2021, 9, 24, 11, 32),
-            visibility: Visibility.friends,
+            visibility: VisibilityEnum.friends,
           ),
           Post(
             id: 'c',
@@ -63,7 +64,7 @@ class ApiPosts extends PostsRepository {
               'user_id_2',
               'user_id_3',
             ],
-            visibility: Visibility.friends,
+            visibility: VisibilityEnum.friends,
           ),
           Post(
             id: 'd',
@@ -82,7 +83,7 @@ class ApiPosts extends PostsRepository {
               'user_id_2',
               'user_id_3',
             ],
-            visibility: Visibility.public,
+            visibility: VisibilityEnum.public,
           ),
           Post(
             id: 'e',
@@ -106,7 +107,7 @@ class ApiPosts extends PostsRepository {
               'user_id_2',
               'user_id_3',
             ],
-            visibility: Visibility.public,
+            visibility: VisibilityEnum.public,
           ),
         ];
       },

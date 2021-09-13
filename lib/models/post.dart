@@ -1,3 +1,4 @@
+import 'package:facebook_clone/enums/visibility_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -6,7 +7,7 @@ class Post {
   User user;
   String text;
   DateTime publishTime;
-  Visibility visibility;
+  VisibilityEnum visibility;
   List<String>? images;
   List<String>? likes;
   List<String>? shares;
@@ -40,13 +41,13 @@ class Post {
 
   IconData getVisibilityIcon() {
     switch (visibility) {
-      case Visibility.public:
+      case VisibilityEnum.public:
         return Icons.public;
-      case Visibility.private:
+      case VisibilityEnum.private:
         return Icons.lock;
-      case Visibility.friends:
+      case VisibilityEnum.friends:
         return Icons.group;
-      case Visibility.custom:
+      case VisibilityEnum.custom:
         return Icons.settings;
     }
   }
@@ -56,11 +57,4 @@ class User {
   String name;
   String profileImage;
   User(this.name, this.profileImage);
-}
-
-enum Visibility {
-  public,
-  friends,
-  private,
-  custom,
 }

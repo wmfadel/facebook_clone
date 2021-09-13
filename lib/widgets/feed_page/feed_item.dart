@@ -1,3 +1,4 @@
+import 'package:facebook_clone/enums/visibility_enum.dart';
 import 'package:facebook_clone/models/post.dart';
 import 'package:facebook_clone/resources/app_colors.dart';
 import 'package:facebook_clone/resources/images.dart';
@@ -132,12 +133,14 @@ class FeedItem extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
-                    PostInteraction(
+                  children: [
+                    const PostInteraction(
                         icon: Icons.thumb_up_alt_outlined, text: 'Like'),
-                    PostInteraction(
+                    const PostInteraction(
                         icon: Icons.chat_bubble_outline, text: 'Comment'),
-                    PostInteraction(icon: Icons.reply_rounded, text: 'Share'),
+                    if (_post.visibility == VisibilityEnum.public)
+                      const PostInteraction(
+                          icon: Icons.reply_rounded, text: 'Share'),
                   ],
                 ),
               ),
