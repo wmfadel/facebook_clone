@@ -28,9 +28,7 @@ class PostInteraction extends StatelessWidget {
               Text(
                 text,
                 style: const TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
+                  color: AppColors.bodyIconsGrey,
                 ),
               )
             ],
