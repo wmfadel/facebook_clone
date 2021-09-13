@@ -17,11 +17,11 @@ class FeedItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin:
-          const EdgeInsets.symmetric(vertical: 10, horizontal: kIsWeb ? 80 : 8),
+          const EdgeInsets.symmetric(vertical: 8, horizontal: kIsWeb ? 80 : 0),
       child: Material(
         color: Colors.white,
         elevation: 1,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: kIsWeb ? BorderRadius.circular(10) : null,
         child: Container(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Column(

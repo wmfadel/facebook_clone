@@ -3,6 +3,7 @@ import 'package:facebook_clone/models/connection.dart';
 import 'package:facebook_clone/resources/images.dart';
 import 'package:facebook_clone/widgets/feed_page/create_story.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -12,8 +13,9 @@ class Stories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 180,
-      margin: const EdgeInsets.symmetric(horizontal: 25),
+      height: 190,
+      color: kIsWeb ? Colors.transparent : Colors.white,
+      margin: kIsWeb ? const EdgeInsets.symmetric(horizontal: 25) : null,
       child: ListView.builder(
         controller: ScrollController(),
         itemCount: 15,
@@ -43,7 +45,7 @@ class Stories extends StatelessWidget {
                         Radius.circular(10),
                       ),
                       image: DecorationImage(
-                        image: const NetworkImage(
+                        image: const AssetImage(
                           Images.mainUser,
                         ),
                         fit: BoxFit.cover,

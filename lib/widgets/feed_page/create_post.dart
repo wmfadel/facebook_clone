@@ -11,13 +11,12 @@ class CreatePost extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: kIsWeb ? 80 : 8,
+        horizontal: kIsWeb ? 80 : 0,
       ),
       child: Material(
         color: Colors.white,
         elevation: 1,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: kIsWeb ? BorderRadius.circular(10) : null,
         child: Container(
           padding: const EdgeInsets.fromLTRB(15, 10, 15, 15),
           child: Column(

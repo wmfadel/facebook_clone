@@ -28,7 +28,7 @@ class CreateStory extends StatelessWidget {
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10),
                     ),
-                    child: Image.network(
+                    child: Image.asset(
                       Images.mainUser,
                       width: double.maxFinite,
                       height: double.maxFinite,
