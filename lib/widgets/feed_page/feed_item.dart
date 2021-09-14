@@ -1,18 +1,21 @@
+import 'package:facebook_clone/blocs/live_feed_cubit/live_feed_cubit.dart';
 import 'package:facebook_clone/enums/visibility_enum.dart';
 import 'package:facebook_clone/models/post.dart';
 import 'package:facebook_clone/resources/app_colors.dart';
 import 'package:facebook_clone/resources/images.dart';
+import 'package:facebook_clone/widgets/feed_page/feed_comment.dart';
 import 'package:facebook_clone/widgets/feed_page/post_images.dart';
 import 'package:facebook_clone/widgets/feed_page/post_interaction_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FeedItem extends StatelessWidget {
   final Post _post;
-  const FeedItem(this._post, {Key? key}) : super(key: key);
-
+  FeedItem(this._post, {Key? key}) : super(key: key);
+  final TextEditingController commentTextField = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -144,6 +147,97 @@ class FeedItem extends StatelessWidget {
                   ],
                 ),
               ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Divider(),
+              ),
+              if (_post.comments != null && _post.comments != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        'All Comments',
+                        style: TextStyle(
+                          color: AppColors.bodyIconsGrey,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(width: 4),
+                      Icon(
+                        Icons.arrow_drop_down,
+                        color: AppColors.bodyIconsGrey,
+                      )
+                    ],
+                  ),
+                ),
+              // add comment text field
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const CircleAvatar(
+                      radius: 18,
+                      backgroundImage: AssetImage(Images.mainUser),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: TextField(
+                        controller: commentTextField,
+                        maxLines: 1,
+                        minLines: 1,
+                        autocorrect: true,
+                        textInputAction: TextInputAction.go,
+                        onSubmitted: (value) {
+                          BlocProvider.of<LiveFeedCubit>(context).addComment(
+                            Post(
+                                id: 'xx',
+                                user: User(
+                                  'Dasha Taran',
+                                  'https://raw.githubusercontent.com/wmfadel/facebook_clone/master/assets/images/user.jpg',
+                                ),
+                                text: value,
+                                publishTime: DateTime.now(),
+                                visibility: VisibilityEnum.public),
+                          );
+                          commentTextField.clear();
+                          FocusScope.of(context).unfocus();
+                        },
+                        style: const TextStyle(fontSize: 16.0, height: 1.0),
+                        decoration: InputDecoration(
+                          filled: true,
+                          isDense: true,
+                          suffixIcon: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: const [
+                              Icon(Icons.tag_faces, size: 18),
+                              SizedBox(width: 4),
+                              Icon(Icons.camera_alt_outlined, size: 18),
+                              SizedBox(width: 4),
+                              Icon(Icons.gif, size: 18),
+                              SizedBox(width: 4),
+                              Icon(Icons.sticky_note_2_rounded, size: 18),
+                              SizedBox(width: 8),
+                            ],
+                          ),
+                          fillColor: AppColors.textfieldInnerGrey,
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(90),
+                          ),
+                          hintText: 'Write a comment...',
+                          hintStyle: const TextStyle(fontSize: 12),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              if (_post.comments != null && _post.comments != null)
+                FeedComments(_post.comments!),
             ],
           ),
         ),

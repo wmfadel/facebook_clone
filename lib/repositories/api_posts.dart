@@ -17,7 +17,7 @@ class ApiPosts extends PostsRepository {
             ),
             text:
                 '20 years ago, we were irrevocably changed. We’ll never forget those we lost or the heroic efforts of first responders and everyday Americans on that terrible day. Nor will we forget the sacrifices of those who were called to service in the months and years that followed.',
-            publishTime: DateTime.now(),
+            publishTime: DateTime.now().add(const Duration(days: 3)),
             likes: [
               'user_id_1',
               'user_id_2',
@@ -30,6 +30,19 @@ class ApiPosts extends PostsRepository {
               'user_id_1',
               'user_id_2',
               'user_id_3',
+            ],
+            comments: [
+              Post(
+                id: 'z',
+                user: User(
+                  'Marques Brownlee',
+                  'https://pbs.twimg.com/profile_images/1364264349204959235/fJPgOBd2_400x400.jpg',
+                ),
+                text:
+                    'Lots of medium/minor updates, but I have lots of big thoughts! Expect a video soon ',
+                publishTime: DateTime.now().add(const Duration(days: 2)),
+                visibility: VisibilityEnum.public,
+              )
             ],
             visibility: VisibilityEnum.public,
           ),

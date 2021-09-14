@@ -1,8 +1,6 @@
 import 'package:facebook_clone/blocs/navigation_cubit/tabsnavigation_cubit.dart';
 import 'package:facebook_clone/enums/tabs_enum.dart';
-import 'package:facebook_clone/pages/chat/mobile_chat_page.dart';
 import 'package:facebook_clone/resources/images.dart';
-import 'package:facebook_clone/widgets/home_page/appbar_action.dart';
 import 'package:facebook_clone/widgets/home_page/custom_appbar_tab.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';

@@ -1,6 +1,7 @@
 import 'package:facebook_clone/blocs/feed_cubit/feed_cubit.dart';
+import 'package:facebook_clone/blocs/live_feed_cubit/live_feed_cubit.dart';
 import 'package:facebook_clone/widgets/feed_page/create_post.dart';
-import 'package:facebook_clone/widgets/feed_page/feed_item.dart';
+import 'package:facebook_clone/widgets/feed_page/feed_item_builder.dart';
 import 'package:facebook_clone/widgets/feed_page/feed_stories.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +13,9 @@ class FeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      primary: true,
       shrinkWrap: true,
       physics: const ClampingScrollPhysics(),
+      controller: kIsWeb ? ScrollController() : null,
       children: [
         ...kIsWeb
             ? [const Stories(), const SizedBox(height: 8), const CreatePost()]
@@ -35,7 +36,11 @@ class FeedPage extends StatelessWidget {
                 controller: ScrollController(),
                 itemCount: (state as FeedLoadedState).feedList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return FeedItem(state.feedList[index]);
+                  return BlocProvider<LiveFeedCubit>(
+                    create: (BuildContext context) =>
+                        LiveFeedCubit(state.feedList[index]),
+                    child: const FeedItemBuilder(),
+                  );
                 },
               );
             }
