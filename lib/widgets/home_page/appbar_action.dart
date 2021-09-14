@@ -27,7 +27,11 @@ class AppbarAction extends StatelessWidget {
           width: 38,
           height: 38,
           child: icon != null
-              ? Icon(icon, size: 22)
+              ? Icon(
+                  icon,
+                  size: 22,
+                  color: AppColors.bodyIconsGrey,
+                )
               : Center(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,

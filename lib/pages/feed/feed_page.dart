@@ -12,7 +12,9 @@ class FeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      controller: ScrollController(),
+      primary: true,
+      shrinkWrap: true,
+      physics: const ClampingScrollPhysics(),
       children: [
         ...kIsWeb
             ? [const Stories(), const SizedBox(height: 8), const CreatePost()]
