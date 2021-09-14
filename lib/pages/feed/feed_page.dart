@@ -1,5 +1,6 @@
 import 'package:facebook_clone/blocs/feed_cubit/feed_cubit.dart';
 import 'package:facebook_clone/blocs/live_feed_cubit/live_feed_cubit.dart';
+import 'package:facebook_clone/models/post.dart';
 import 'package:facebook_clone/widgets/feed_page/create_post.dart';
 import 'package:facebook_clone/widgets/feed_page/feed_item_builder.dart';
 import 'package:facebook_clone/widgets/feed_page/feed_stories.dart';
@@ -18,10 +19,12 @@ class FeedPage extends StatelessWidget {
       controller: kIsWeb ? ScrollController() : null,
       children: [
         ...kIsWeb
-            ? [const Stories(), const SizedBox(height: 8), const CreatePost()]
-            : [const CreatePost(), const SizedBox(height: 8), const Stories()],
+            ? [const Stories(), const SizedBox(height: 8), CreatePost()]
+            : [CreatePost(), const SizedBox(height: 8), const Stories()],
         BlocConsumer<FeedCubit, FeedState>(
-          listener: (BuildContext context, FeedState state) {},
+          listener: (BuildContext context, FeedState state) {
+            if (state is FeedChangedState) {}
+          },
           builder: (BuildContext context, FeedState state) {
             if (state is FeedInitial) {
               return Container();
@@ -29,24 +32,47 @@ class FeedPage extends StatelessWidget {
               return const Center(child: CircularProgressIndicator());
             } else if (state is FeedErrorState) {
               return Center(child: Text(state.message));
-            } else {
-              return ListView.builder(
-                shrinkWrap: true,
-                physics: const ClampingScrollPhysics(),
-                controller: ScrollController(),
-                itemCount: (state as FeedLoadedState).feedList.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return BlocProvider<LiveFeedCubit>(
-                    create: (BuildContext context) =>
-                        LiveFeedCubit(state.feedList[index]),
-                    child: const FeedItemBuilder(),
-                  );
-                },
+            } else if (state is FeedLoadedState) {
+              return FeedContent(
+                state.feedList,
+                key: Key('FROMLOADED-${DateTime.now()}'),
+              );
+            } else if (state is FeedChangedState) {
+              return FeedContent(
+                state.feedList,
+                key: Key('FROMLOADINg-${DateTime.now()}'),
               );
             }
+            return const Center(child: CircularProgressIndicator());
           },
         ),
       ],
+    );
+  }
+}
+
+class FeedContent extends StatelessWidget {
+  final List<Post> feedList;
+  const FeedContent(
+    this.feedList, {
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const ClampingScrollPhysics(),
+      controller: ScrollController(),
+      itemCount: feedList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return BlocProvider<LiveFeedCubit>(
+          create: (BuildContext context) => LiveFeedCubit(feedList[index]),
+          child: FeedItemBuilder(
+            key: Key(feedList[index].id),
+          ),
+        );
+      },
     );
   }
 }

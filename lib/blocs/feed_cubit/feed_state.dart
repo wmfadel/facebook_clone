@@ -12,6 +12,11 @@ class FeedLoadedState extends FeedState {
   FeedLoadedState(this.feedList);
 }
 
+class FeedChangedState extends FeedState {
+  final List<Post> feedList;
+  FeedChangedState(this.feedList);
+}
+
 class FeedErrorState extends FeedState {
   final String message;
   FeedErrorState(this.message);

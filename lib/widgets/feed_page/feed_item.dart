@@ -192,17 +192,19 @@ class FeedItem extends StatelessWidget {
                         autocorrect: true,
                         textInputAction: TextInputAction.go,
                         onSubmitted: (value) {
-                          BlocProvider.of<LiveFeedCubit>(context).addComment(
-                            Post(
-                                id: 'xx',
-                                user: User(
-                                  'Dasha Taran',
-                                  'https://raw.githubusercontent.com/wmfadel/facebook_clone/master/assets/images/user.jpg',
-                                ),
-                                text: value,
-                                publishTime: DateTime.now(),
-                                visibility: VisibilityEnum.public),
-                          );
+                          if (value.isNotEmpty) {
+                            BlocProvider.of<LiveFeedCubit>(context).addComment(
+                              Post(
+                                  id: 'xx',
+                                  user: User(
+                                    'Dasha Taran',
+                                    'https://raw.githubusercontent.com/wmfadel/facebook_clone/master/assets/images/user.jpg',
+                                  ),
+                                  text: value,
+                                  publishTime: DateTime.now(),
+                                  visibility: VisibilityEnum.public),
+                            );
+                          }
                           commentTextField.clear();
                           FocusScope.of(context).unfocus();
                         },

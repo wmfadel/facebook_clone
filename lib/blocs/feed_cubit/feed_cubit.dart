@@ -10,14 +10,20 @@ class FeedCubit extends Cubit<FeedState> {
   final PostsRepository _repository;
   FeedCubit(this._repository) : super(FeedInitial());
 
+  List<Post> posts = [];
   getPosts() async {
     try {
       emit(FeedLoadingState());
-      final feed = await _repository.getPosts();
-      emit(FeedLoadedState(feed));
+      posts = await _repository.getPosts();
+      emit(FeedLoadedState(posts));
     } on Exception {
       emit(FeedErrorState(
           "Couldn't fetch feed, check your connection and try again"));
     }
+  }
+
+  createPost(Post post) {
+    posts.insert(0, post);
+    emit(FeedChangedState(posts));
   }
 }
