@@ -1,4 +1,4 @@
-import 'package:facebook_clone/blocs/feed_cubit/feed_cubit.dart';
+import 'package:facebook_clone/blocs/feed_bloc/feed_bloc.dart';
 import 'package:facebook_clone/blocs/live_feed_bloc/live_feed_bloc.dart';
 import 'package:facebook_clone/models/post.dart';
 import 'package:facebook_clone/widgets/feed_page/create_post.dart';
@@ -21,9 +21,9 @@ class FeedPage extends StatelessWidget {
         ...kIsWeb
             ? [const Stories(), const SizedBox(height: 8), CreatePost()]
             : [CreatePost(), const SizedBox(height: 8), const Stories()],
-        BlocConsumer<FeedCubit, FeedState>(
+        BlocConsumer<FeedBloc, FeedState>(
           listener: (BuildContext context, FeedState state) {
-            if (state is FeedChangedState) {}
+            if (state is FeedLoadedState) {}
           },
           builder: (BuildContext context, FeedState state) {
             if (state is FeedInitial) {

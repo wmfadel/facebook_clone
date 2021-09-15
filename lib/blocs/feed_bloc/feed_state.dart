@@ -1,4 +1,4 @@
-part of 'feed_cubit.dart';
+part of 'feed_bloc.dart';
 
 @immutable
 abstract class FeedState {}

@@ -1,4 +1,4 @@
-import 'package:facebook_clone/blocs/feed_cubit/feed_cubit.dart';
+import 'package:facebook_clone/blocs/feed_bloc/feed_bloc.dart';
 import 'package:facebook_clone/blocs/navigation_bloc/navigation_bloc.dart';
 import 'package:facebook_clone/pages/chat/mobile_chat_page.dart';
 import 'package:facebook_clone/pages/home/home_page.dart';
@@ -20,8 +20,9 @@ class MyApp extends StatelessWidget {
         BlocProvider<NavigationBloc>(
           create: (BuildContext context) => NavigationBloc(),
         ),
-        BlocProvider<FeedCubit>(
-          create: (BuildContext context) => FeedCubit(ApiPosts())..getPosts(),
+        BlocProvider<FeedBloc>(
+          create: (BuildContext context) =>
+              FeedBloc((ApiPosts()))..add(LoadFeedEvent()),
         ),
       ],
       child: MaterialApp(

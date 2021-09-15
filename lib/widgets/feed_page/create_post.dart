@@ -1,4 +1,4 @@
-import 'package:facebook_clone/blocs/feed_cubit/feed_cubit.dart';
+import 'package:facebook_clone/blocs/feed_bloc/feed_bloc.dart';
 import 'package:facebook_clone/enums/visibility_enum.dart';
 import 'package:facebook_clone/models/post.dart';
 import 'package:facebook_clone/resources/app_colors.dart';
@@ -47,16 +47,18 @@ class CreatePost extends StatelessWidget {
                       textInputAction: TextInputAction.go,
                       onSubmitted: (value) {
                         if (value.isNotEmpty) {
-                          BlocProvider.of<FeedCubit>(context).createPost(
-                            Post(
-                                id: 'xx',
-                                user: User(
-                                  'Dasha Taran',
-                                  'https://raw.githubusercontent.com/wmfadel/facebook_clone/master/assets/images/user.jpg',
-                                ),
-                                text: value,
-                                publishTime: DateTime.now(),
-                                visibility: VisibilityEnum.public),
+                          BlocProvider.of<FeedBloc>(context).add(
+                            CreatePostEvent(
+                              Post(
+                                  id: 'xx',
+                                  user: User(
+                                    'Dasha Taran',
+                                    'https://raw.githubusercontent.com/wmfadel/facebook_clone/master/assets/images/user.jpg',
+                                  ),
+                                  text: value,
+                                  publishTime: DateTime.now(),
+                                  visibility: VisibilityEnum.public),
+                            ),
                           );
                         }
                         postTextController.clear();
