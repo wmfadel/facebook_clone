@@ -129,7 +129,7 @@ class FeedItem extends StatelessWidget {
 
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Divider(),
+                child: Divider(height: 10),
               ),
 // like, comment and share buttons
               Padding(
@@ -149,7 +149,7 @@ class FeedItem extends StatelessWidget {
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Divider(),
+                child: Divider(height: 10),
               ),
               if (_post.comments != null && _post.comments != null)
                 Padding(

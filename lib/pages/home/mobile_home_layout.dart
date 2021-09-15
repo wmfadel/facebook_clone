@@ -1,4 +1,4 @@
-import 'package:facebook_clone/blocs/navigation_cubit/tabsnavigation_cubit.dart';
+import 'package:facebook_clone/blocs/navigation_bloc/navigation_bloc.dart';
 import 'package:facebook_clone/enums/tabs_enum.dart';
 import 'package:facebook_clone/pages/explore/explore.dart';
 import 'package:facebook_clone/pages/feed/feed_page.dart';
@@ -27,24 +27,27 @@ class MobileHomeLayout extends StatelessWidget {
         children: [
           const MobileAppbar(),
           Expanded(
-            child: BlocConsumer<TabsnavigationCubit, TabsnavigationState>(
-              listener: (context, TabsnavigationState state) {},
-              builder: (context, TabsnavigationState state) {
-                Tabs tab =
-                    BlocProvider.of<TabsnavigationCubit>(context).currentTab;
-                switch (tab) {
-                  case Tabs.home:
-                    return const FeedPage();
-                  case Tabs.pages:
-                    return Container();
-                  case Tabs.groups:
-                    return Container();
-                  case Tabs.watch:
-                    return Container();
-                  case Tabs.gaming:
-                    return Container();
-                  case Tabs.more:
-                    return const Explore();
+            child: BlocConsumer<NavigationBloc, NavigationState>(
+              listener: (context, NavigationState state) {},
+              builder: (context, NavigationState state) {
+                if (state is NavigationChange) {
+                  switch (state.tab) {
+                    case Tabs.home:
+                      return const FeedPage();
+                    case Tabs.pages:
+                      return Container();
+                    case Tabs.groups:
+                      return Container();
+                    case Tabs.watch:
+                      return Container();
+                    case Tabs.gaming:
+                      return Container();
+                    case Tabs.more:
+                      return const Explore();
+                  }
+                } else {
+                  // if initial state
+                  return const FeedPage();
                 }
               },
             ),
@@ -54,34 +57,3 @@ class MobileHomeLayout extends StatelessWidget {
     );
   }
 }
-
-/**
- *  return Column(
-      children: [
-        const MobileAppbar(),
-        Expanded(
-          child: BlocConsumer<TabsnavigationCubit, TabsnavigationState>(
-            listener: (context, TabsnavigationState state) {},
-            builder: (context, TabsnavigationState state) {
-              Tabs tab =
-                  BlocProvider.of<TabsnavigationCubit>(context).currentTab;
-              switch (tab) {
-                case Tabs.home:
-                  return const FeedPage();
-                case Tabs.pages:
-                  return Container();
-                case Tabs.groups:
-                  return Container();
-                case Tabs.watch:
-                  return Container();
-                case Tabs.gaming:
-                  return Container();
-                case Tabs.more:
-                  return const Explore();
-              }
-            },
-          ),
-        ),
-      ],
-    );
- */

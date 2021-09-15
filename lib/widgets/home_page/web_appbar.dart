@@ -1,4 +1,4 @@
-import 'package:facebook_clone/blocs/navigation_cubit/tabsnavigation_cubit.dart';
+import 'package:facebook_clone/blocs/navigation_bloc/navigation_bloc.dart';
 import 'package:facebook_clone/enums/tabs_enum.dart';
 import 'package:facebook_clone/resources/app_colors.dart';
 import 'package:facebook_clone/resources/images.dart';
@@ -60,13 +60,9 @@ class WebAppbar extends StatelessWidget {
               ],
             ),
 
-            BlocConsumer<TabsnavigationCubit, TabsnavigationState>(
-              listener: (BuildContext context, TabsnavigationState state) {
-                if (state is TabsnavigationChange) {}
-              },
-              builder: (BuildContext context, TabsnavigationState state) {
-                Tabs tab =
-                    BlocProvider.of<TabsnavigationCubit>(context).currentTab;
+            BlocConsumer<NavigationBloc, NavigationState>(
+              listener: (BuildContext context, NavigationState state) {},
+              builder: (BuildContext context, NavigationState state) {
                 return Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -74,31 +70,31 @@ class WebAppbar extends StatelessWidget {
                       id: Tabs.home,
                       icon: Images.home,
                       name: 'Home',
-                      isSelected: tab == Tabs.home ? true : false,
+                      isSelected: state.tab == Tabs.home ? true : false,
                     ),
                     CustomAppbarTab(
                       id: Tabs.pages,
                       icon: Images.pages,
                       name: 'Pages',
-                      isSelected: tab == Tabs.pages ? true : false,
+                      isSelected: state.tab == Tabs.pages ? true : false,
                     ),
                     CustomAppbarTab(
                       id: Tabs.groups,
                       icon: Images.groups,
                       name: 'Groups',
-                      isSelected: tab == Tabs.groups ? true : false,
+                      isSelected: state.tab == Tabs.groups ? true : false,
                     ),
                     CustomAppbarTab(
                       id: Tabs.watch,
                       icon: Images.watch,
                       name: 'Watch',
-                      isSelected: tab == Tabs.watch ? true : false,
+                      isSelected: state.tab == Tabs.watch ? true : false,
                     ),
                     CustomAppbarTab(
                       id: Tabs.gaming,
                       icon: Images.gaming,
                       name: 'Gaming',
-                      isSelected: tab == Tabs.gaming ? true : false,
+                      isSelected: state.tab == Tabs.gaming ? true : false,
                     ),
                   ],
                 );

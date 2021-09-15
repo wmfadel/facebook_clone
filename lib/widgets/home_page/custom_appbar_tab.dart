@@ -1,4 +1,4 @@
-import 'package:facebook_clone/blocs/navigation_cubit/tabsnavigation_cubit.dart';
+import 'package:facebook_clone/blocs/navigation_bloc/navigation_bloc.dart';
 import 'package:facebook_clone/enums/tabs_enum.dart';
 import 'package:facebook_clone/resources/app_colors.dart';
 import 'package:flutter/foundation.dart';
@@ -27,7 +27,7 @@ class CustomAppbarTab extends StatelessWidget {
         child: InkWell(
           splashColor: Colors.grey[200],
           onTap: () {
-            BlocProvider.of<TabsnavigationCubit>(context).change(id);
+            BlocProvider.of<NavigationBloc>(context).add(ChangeTabEvent(id));
           },
           child: SizedBox(
             height: 52,
