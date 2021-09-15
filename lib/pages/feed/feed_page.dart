@@ -1,5 +1,5 @@
 import 'package:facebook_clone/blocs/feed_cubit/feed_cubit.dart';
-import 'package:facebook_clone/blocs/live_feed_cubit/live_feed_cubit.dart';
+import 'package:facebook_clone/blocs/live_feed_bloc/live_feed_bloc.dart';
 import 'package:facebook_clone/models/post.dart';
 import 'package:facebook_clone/widgets/feed_page/create_post.dart';
 import 'package:facebook_clone/widgets/feed_page/feed_item_builder.dart';
@@ -66,8 +66,8 @@ class FeedContent extends StatelessWidget {
       controller: ScrollController(),
       itemCount: feedList.length,
       itemBuilder: (BuildContext context, int index) {
-        return BlocProvider<LiveFeedCubit>(
-          create: (BuildContext context) => LiveFeedCubit(feedList[index]),
+        return BlocProvider<LiveFeedBloc>(
+          create: (BuildContext context) => LiveFeedBloc(feedList[index]),
           child: FeedItemBuilder(
             key: Key(feedList[index].id),
           ),

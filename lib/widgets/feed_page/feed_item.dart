@@ -1,4 +1,4 @@
-import 'package:facebook_clone/blocs/live_feed_cubit/live_feed_cubit.dart';
+import 'package:facebook_clone/blocs/live_feed_bloc/live_feed_bloc.dart';
 import 'package:facebook_clone/enums/visibility_enum.dart';
 import 'package:facebook_clone/models/post.dart';
 import 'package:facebook_clone/resources/app_colors.dart';
@@ -193,16 +193,18 @@ class FeedItem extends StatelessWidget {
                         textInputAction: TextInputAction.go,
                         onSubmitted: (value) {
                           if (value.isNotEmpty) {
-                            BlocProvider.of<LiveFeedCubit>(context).addComment(
-                              Post(
-                                  id: 'xx',
-                                  user: User(
-                                    'Dasha Taran',
-                                    'https://raw.githubusercontent.com/wmfadel/facebook_clone/master/assets/images/user.jpg',
-                                  ),
-                                  text: value,
-                                  publishTime: DateTime.now(),
-                                  visibility: VisibilityEnum.public),
+                            BlocProvider.of<LiveFeedBloc>(context).add(
+                              AddCommentEvent(
+                                Post(
+                                    id: 'xx',
+                                    user: User(
+                                      'Dasha Taran',
+                                      'https://raw.githubusercontent.com/wmfadel/facebook_clone/master/assets/images/user.jpg',
+                                    ),
+                                    text: value,
+                                    publishTime: DateTime.now(),
+                                    visibility: VisibilityEnum.public),
+                              ),
                             );
                           }
                           commentTextField.clear();
